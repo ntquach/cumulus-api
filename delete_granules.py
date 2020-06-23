@@ -39,6 +39,7 @@ def run():
             print("Deleted %s" % granule['granuleId'])
         page += 1
         parameters["page"] = page
+        cml.refresh_token()
         granules = cml.list_granules(**parameters)
 
 

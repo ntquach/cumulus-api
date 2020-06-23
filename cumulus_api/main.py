@@ -93,6 +93,7 @@ class CumulusApi:
         data = {"token": self.TOKEN}
         refreshed_token = self.__crud_records(record_type="refresh", verb="post", data=data)
         self.TOKEN = refreshed_token.get('token')
+        self.HEADERS = {'Authorization': 'Bearer {}'.format(self.TOKEN)}
         return self.TOKEN
 
     def delete_token(self):
